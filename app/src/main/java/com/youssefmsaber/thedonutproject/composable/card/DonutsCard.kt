@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.youssefmsaber.thedonutproject.R
+import com.youssefmsaber.thedonutproject.composable.utils.dropShadow
 import com.youssefmsaber.thedonutproject.entity.Donuts
 import com.youssefmsaber.thedonutproject.ui.theme.Black
 import com.youssefmsaber.thedonutproject.ui.theme.INTER
@@ -42,6 +43,11 @@ fun DonutsCard(donut: Donuts) {
             Modifier
                 .height(110.dp)
                 .fillMaxWidth()
+                .align(Alignment.BottomCenter)
+                .dropShadow(
+                    offsetY = 5.dp,
+                    blur = 150.dp
+                )
                 .background(
                     White,
                     shape = RoundedCornerShape(
@@ -51,7 +57,6 @@ fun DonutsCard(donut: Donuts) {
                         bottomEnd = Radius10
                     )
                 )
-                .align(Alignment.BottomCenter)
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,

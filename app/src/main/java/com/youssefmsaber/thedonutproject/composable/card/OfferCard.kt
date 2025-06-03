@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -25,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.youssefmsaber.thedonutproject.R
+import com.youssefmsaber.thedonutproject.composable.utils.dropShadow
 import com.youssefmsaber.thedonutproject.entity.OfferEntity
 import com.youssefmsaber.thedonutproject.ui.theme.Black
 import com.youssefmsaber.thedonutproject.ui.theme.Gray
@@ -40,11 +42,16 @@ fun OfferCard(offer: OfferEntity) {
     Box(
         modifier = Modifier
             .width(230.dp)
+            .height(325.dp)
     ) {
         Box(
             modifier = Modifier
+                .fillMaxHeight()
                 .width(193.dp)
-                .height(325.dp)
+                .dropShadow(
+                    offsetY = 16.dp,
+                    blur = 40.dp,
+                )
                 .background(
                     offer.backgroundColor,
                     shape = RoundedCornerShape(Radius20)
