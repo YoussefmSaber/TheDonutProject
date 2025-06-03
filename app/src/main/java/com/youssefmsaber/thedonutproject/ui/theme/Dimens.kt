@@ -10,6 +10,10 @@ val Padding16 = 16.dp
 val Padding20 = 20.dp
 val Padding24 = 24.dp
 val Padding25 = 25.dp
+val Padding32 = 32.dp
+val Padding34 = 34.dp
+val Padding36 = 36.dp
+val Padding40 = 40.dp
 
 val Radius10 = 10.dp
 val Radius15 = 15.dp
