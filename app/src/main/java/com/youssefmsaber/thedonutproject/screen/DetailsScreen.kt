@@ -61,10 +61,9 @@ import com.youssefmsaber.thedonutproject.ui.theme.White
 @Composable
 fun DetailsScreen() {
     Scaffold(
-        containerColor = White,
         bottomBar = {
             Box(
-                Modifier
+                Modifier.background(White)
                     .padding(Padding40)
             ) {
                 AddToCart()

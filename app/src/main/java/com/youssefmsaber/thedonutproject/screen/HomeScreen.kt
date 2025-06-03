@@ -37,6 +37,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.constraintlayout.compose.Dimension
 import com.youssefmsaber.thedonutproject.R
 import com.youssefmsaber.thedonutproject.composable.card.DonutsCard
 import com.youssefmsaber.thedonutproject.composable.card.OfferCard
@@ -148,6 +149,7 @@ fun HomeScreen() {
                 top.linkTo(offer.bottom)
                 start.linkTo(parent.start)
                 end.linkTo(parent.end)
+                height = Dimension.fillToConstraints
             })
 
         }
