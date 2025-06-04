@@ -6,10 +6,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -20,7 +18,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.draw.scale
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -36,8 +33,8 @@ import com.youssefmsaber.thedonutproject.ui.theme.Padding12
 import com.youssefmsaber.thedonutproject.ui.theme.Padding16
 import com.youssefmsaber.thedonutproject.ui.theme.Padding20
 import com.youssefmsaber.thedonutproject.ui.theme.Padding24
-import com.youssefmsaber.thedonutproject.ui.theme.Padding34
 import com.youssefmsaber.thedonutproject.ui.theme.Padding40
+import com.youssefmsaber.thedonutproject.ui.theme.Padding50
 import com.youssefmsaber.thedonutproject.ui.theme.Padding60
 import com.youssefmsaber.thedonutproject.ui.theme.PrimaryPink
 import com.youssefmsaber.thedonutproject.ui.theme.SecondaryPink
@@ -56,58 +53,12 @@ fun OnboardingScreen() {
         ) {
             Box {
                 Image(
-                    painter = painterResource(R.drawable.big_boss),
+                    painter = painterResource(R.drawable.onboarding_donut),
                     contentDescription = "Big donut image",
                     modifier = Modifier
-                        .height(445.dp)
-                        .scale(1.2f)
-                        .offset(x = Padding20),
-                    contentScale = ContentScale.Crop
+                        .scale(1.8f)
+                        .offset(y = Padding50, x = Padding12),
                 )
-                Column(
-                    modifier = Modifier.align(Alignment.TopStart)
-                ) {
-
-                    Image(
-                        painter = painterResource(R.drawable.purple_donut),
-                        contentDescription = "Purple donut image",
-                        modifier = Modifier
-                            .align(Alignment.Start)
-                            .offset(x = (-Padding40), y = (-44).dp)
-                            .scale(0.8f)
-                            .size(186.dp)
-                    )
-                    Image(
-                        painter = painterResource(R.drawable.donut_with_pink_icing_small),
-                        contentDescription = "Purple donut image",
-                        modifier = Modifier
-                            .padding(top = Padding60, start = Padding16)
-                            .height(70.dp)
-
-                    )
-                }
-                Column(
-                    horizontalAlignment = Alignment.End,
-                    modifier = Modifier
-                        .align(Alignment.TopEnd)
-                ) {
-                    Image(
-                        painter = painterResource(R.drawable.donut_with_pink_icing),
-                        contentDescription = "Purple donut image",
-                        modifier = Modifier
-                            .padding(horizontal = Padding34)
-                            .padding(top = Padding40)
-                            .height(125.dp)
-                    )
-                    Image(
-                        painter = painterResource(R.drawable.eaten_donut),
-                        contentDescription = "Purple donut image",
-                        modifier = Modifier
-                            .padding(top = 175.dp)
-                            .height(165.dp)
-                            .offset(x = 90.dp)
-                    )
-                }
             }
             Column(
                 modifier = Modifier
@@ -136,7 +87,7 @@ fun OnboardingScreen() {
                         fontSize = 18.sp
                     ),
                     modifier = Modifier
-                        .padding(bottom = Padding60)
+                        .padding(bottom = Padding60, end = Padding24)
                 )
 
                 Button(
@@ -155,7 +106,7 @@ fun OnboardingScreen() {
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 20.sp
                         ),
-                        modifier = Modifier.padding(vertical = Padding12)
+                        modifier = Modifier.padding(vertical = Padding16)
                     )
                 }
             }
@@ -164,7 +115,8 @@ fun OnboardingScreen() {
 }
 
 
-@Preview(showSystemUi = true)
+@Preview(showSystemUi = true, device = "spec:width=428dp,height=926dp")
+@Preview(showSystemUi = true, device = "spec:width=360dp,height=800dp")
 @Composable
 private fun OnboardingScreenPreview() {
     OnboardingScreen()

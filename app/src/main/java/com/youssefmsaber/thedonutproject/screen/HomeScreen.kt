@@ -64,6 +64,7 @@ fun HomeScreen() {
                 containerColor = Color.Transparent,
                 contentColor = PrimaryPink,
                 tonalElevation = 0.dp,
+                contentPadding = PaddingValues(0.dp),
                 actions = {
                     Row(
                         modifier = Modifier
@@ -101,12 +102,12 @@ fun HomeScreen() {
                                             .offset(x = (-6).dp, y = 2.dp)
                                             .align(Alignment.Center)
                                             .background(PrimaryPink, shape = CircleShape)
-                                            .size(4.dp)
+                                            .size(5.dp)
                                             .border(
                                                 border = BorderStroke(width = 0.25.dp, White),
                                                 shape = CircleShape
                                             )
-                                            .offset(y = 0.75.dp)
+                                            .offset(y = 1.5.dp, x = (-0.5).dp)
                                     )
                                 }
                             ) {

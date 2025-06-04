@@ -13,6 +13,7 @@ val Padding32 = 32.dp
 val Padding34 = 34.dp
 val Padding36 = 36.dp
 val Padding40 = 40.dp
+val Padding50 = 50.dp
 val Padding60 = 60.dp
 
 val Radius10 = 10.dp
