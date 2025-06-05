@@ -2,4 +2,12 @@
     <string name="app_name">TheDonutProject</string>
     <string name="gonuts_with_donuts_is_a_sri_lanka_dedicated_food_outlets_for_specialize_manufacturing_of_donuts_in_colombo_sri_lanka">Gonuts with Donuts is a Sri Lanka dedicated food outlets for specialize manufacturing of Donuts in Colombo, Sri Lanka.</string>
     <string name="gonuts_with_donuts">Gonuts with Donuts</string>
+    <string name="description">These soft, cake-like Strawberry Frosted Donuts feature fresh strawberries and a delicious fresh strawberry glaze frosting. Pretty enough for company and the perfect treat to satisfy your sweet tooth.</string>
+    <string name="about_gonut">About Gonut</string>
+    <string name="strawberry_wheel">Strawberry Wheel</string>
+    <string name="quantity">Quantity</string>
+    <string name="add_to_cart">Add To Cart</string>
+    <string name="let_s_gonuts">Let’s Gonuts!</string>
+    <string name="order_your_favourite_donuts_from_here">Order your favourite donuts from here</string>
+    <string name="get_started">Get Started</string>
 </resources>

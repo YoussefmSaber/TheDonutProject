@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -19,6 +20,7 @@ import androidx.compose.ui.unit.sp
 import com.youssefmsaber.thedonutproject.composable.utils.dropShadow
 import com.youssefmsaber.thedonutproject.ui.theme.Black
 import com.youssefmsaber.thedonutproject.ui.theme.INTER
+import com.youssefmsaber.thedonutproject.ui.theme.Padding16
 import com.youssefmsaber.thedonutproject.ui.theme.Padding20
 import com.youssefmsaber.thedonutproject.ui.theme.White
 
@@ -26,7 +28,8 @@ import com.youssefmsaber.thedonutproject.ui.theme.White
 fun QuantityCards() {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(Padding20)
+        horizontalArrangement = Arrangement.spacedBy(Padding20),
+        modifier = Modifier.padding(bottom = Padding16)
     ) {
         Card(
             colors = CardDefaults.cardColors(

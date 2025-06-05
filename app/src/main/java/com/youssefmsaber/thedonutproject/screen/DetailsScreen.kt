@@ -7,22 +7,15 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -31,6 +24,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.BaselineShift
@@ -40,17 +34,20 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.youssefmsaber.thedonutproject.R
+import com.youssefmsaber.thedonutproject.composable.button.CustomButton
+import com.youssefmsaber.thedonutproject.composable.card.FavoriteCard
 import com.youssefmsaber.thedonutproject.composable.card.QuantityCards
-import com.youssefmsaber.thedonutproject.composable.utils.dropShadow
 import com.youssefmsaber.thedonutproject.ui.theme.Black
 import com.youssefmsaber.thedonutproject.ui.theme.INTER
 import com.youssefmsaber.thedonutproject.ui.theme.LightPink
 import com.youssefmsaber.thedonutproject.ui.theme.Padding16
+import com.youssefmsaber.thedonutproject.ui.theme.Padding19
 import com.youssefmsaber.thedonutproject.ui.theme.Padding20
-import com.youssefmsaber.thedonutproject.ui.theme.Padding25
+import com.youssefmsaber.thedonutproject.ui.theme.Padding26
 import com.youssefmsaber.thedonutproject.ui.theme.Padding32
-import com.youssefmsaber.thedonutproject.ui.theme.Padding34
-import com.youssefmsaber.thedonutproject.ui.theme.Padding36
+import com.youssefmsaber.thedonutproject.ui.theme.Padding33
+import com.youssefmsaber.thedonutproject.ui.theme.Padding35
+import com.youssefmsaber.thedonutproject.ui.theme.Padding39
 import com.youssefmsaber.thedonutproject.ui.theme.Padding40
 import com.youssefmsaber.thedonutproject.ui.theme.Padding8
 import com.youssefmsaber.thedonutproject.ui.theme.PrimaryPink
@@ -63,8 +60,9 @@ fun DetailsScreen() {
     Scaffold(
         bottomBar = {
             Box(
-                Modifier.background(White)
-                    .padding(Padding40)
+                Modifier
+                    .background(White)
+                    .padding(horizontal = Padding40, vertical = Padding39)
             ) {
                 AddToCart()
             }
@@ -118,29 +116,35 @@ fun DetailsScreen() {
                     )
                 }
 
-                Box(
-                    modifier = Modifier
-                        .background(
-                            color = White,
-                            shape = RoundedCornerShape(topStart = Radius40, topEnd = Radius40)
-                        )
-                        .constrainAs(bottomCard) {
-                            top.linkTo(topCard.bottom, margin = (-40).dp)
-                            start.linkTo(parent.start)
-                            end.linkTo(parent.end)
-                            height = Dimension.fillToConstraints // ← key change
-                        }
-                        .fillMaxSize()
-
-                ) {
-                    FavoriteCard(
-                        Modifier
-                            .align(Alignment.TopEnd)
-                    )
-                    DetailsSection()
-                }
+                InfoSection(Modifier.constrainAs(bottomCard) {
+                    top.linkTo(topCard.bottom, margin = (-40).dp)
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                    height = Dimension.fillToConstraints // ← key change
+                })
             }
         }
+    }
+}
+
+@Composable
+private fun InfoSection(modifier: Modifier = Modifier) {
+    Box(
+        modifier = modifier
+            .background(
+                color = White,
+                shape = RoundedCornerShape(topStart = Radius40, topEnd = Radius40)
+            )
+
+            .fillMaxSize()
+
+    ) {
+        FavoriteCard(
+            Modifier
+                .align(Alignment.TopEnd)
+                .padding(horizontal = Padding33)
+        )
+        DetailsSection()
     }
 }
 
@@ -150,7 +154,7 @@ private fun DetailsSection() {
         horizontalAlignment = Alignment.Start,
         modifier = Modifier
             .padding(horizontal = Padding40)
-            .padding(top = Padding36)
+            .padding(top = Padding35)
     ) {
         DonutInfo()
         QuantitySection()
@@ -161,18 +165,18 @@ private fun DetailsSection() {
 private fun DonutInfo() {
     // Title
     Text(
-        "Strawberry Wheel",
+        stringResource(R.string.strawberry_wheel),
         style = TextStyle(
             fontFamily = INTER,
             color = PrimaryPink,
             fontSize = 30.sp,
             fontWeight = FontWeight.SemiBold
         ),
-        modifier = Modifier.padding(bottom = Padding34)
+        modifier = Modifier.padding(bottom = Padding33)
     )
     // About
     Text(
-        "About Gonut",
+        stringResource(R.string.about_gonut),
         style = TextStyle(
             fontFamily = INTER,
             color = Black.copy(0.8f),
@@ -183,7 +187,7 @@ private fun DonutInfo() {
     )
     // Description
     Text(
-        "These soft, cake-like Strawberry Frosted Donuts feature fresh strawberries and a delicious fresh strawberry glaze frosting. Pretty enough for company and the perfect treat to satisfy your sweet tooth.",
+        stringResource(R.string.description),
         style = TextStyle(
             fontFamily = INTER,
             color = Black.copy(0.6f),
@@ -191,31 +195,30 @@ private fun DonutInfo() {
             fontWeight = FontWeight.Normal,
             letterSpacing = 0.5.sp
         ),
-        modifier = Modifier.padding(bottom = Padding25)
+        modifier = Modifier.padding(bottom = Padding26)
     )
 }
 
 @Composable
 private fun QuantitySection() {
     Text(
-        "Quantity",
+        stringResource(R.string.quantity),
         style = TextStyle(
             fontFamily = INTER,
             color = Black.copy(0.8f),
             fontSize = 18.sp,
             fontWeight = FontWeight.Medium,
         ),
-        modifier = Modifier.padding(bottom = Padding20)
+        modifier = Modifier.padding(bottom = Padding19)
     )
     QuantityCards()
-    Spacer(Modifier.height(Padding16))
 }
 
 @Composable
 private fun AddToCart() {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(Padding20),
+        horizontalArrangement = Arrangement.spacedBy(Padding26),
     ) {
         Text(
             "£16",
@@ -227,54 +230,16 @@ private fun AddToCart() {
                 baselineShift = BaselineShift.Subscript
             ),
         )
-        Button(
-            colors = ButtonDefaults.buttonColors(
-                containerColor = PrimaryPink,
-                contentColor = White
-            ),
-            onClick = {},
-            contentPadding = PaddingValues(vertical = Padding20),
+        CustomButton(
+            text = stringResource(R.string.add_to_cart),
+            textColor = White,
+            buttonColor = PrimaryPink,
+            verticalPadding = Padding20,
             modifier = Modifier.weight(1f)
-        ) {
-            Text(
-                "Add To Cart",
-                style = TextStyle(
-                    fontFamily = INTER,
-                    color = White,
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.SemiBold,
-                )
-            )
-        }
-    }
-}
-
-@Composable
-private fun FavoriteCard(modifier: Modifier = Modifier) {
-    Card(
-        colors = CardDefaults.cardColors(
-            containerColor = White
-        ),
-        modifier = modifier
-            .dropShadow(
-                offsetY = 4.dp,
-                blur = 40.dp
-            )
-            .padding(horizontal = Padding25)
-            .size(40.dp)
-            .offset(y = (-20).dp),
-        onClick = {}
-    ) {
-        Icon(
-            painter = painterResource(R.drawable.sharp_heart_outline),
-            contentDescription = "Heart Icon",
-            tint = PrimaryPink,
-            modifier = Modifier
-                .padding(Padding8)
-                .size(30.dp)
         )
     }
 }
+
 
 @Preview(showSystemUi = true)
 @Composable

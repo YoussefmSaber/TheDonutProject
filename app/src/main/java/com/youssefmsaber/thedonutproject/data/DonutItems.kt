@@ -15,7 +15,7 @@ val donutItems = listOf(
         price = "$22"
     ),
     Donuts(
-        image = R.drawable.choco_strawberry,
+        image = R.drawable.strawberry_choco,
         title = "Strawberry Coco",
         price = "$22"
     )
